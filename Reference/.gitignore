@@ -1,0 +1,42 @@
+# Environment variables
+.env
+
+# OS generated files
+Thumbs.db
+ehthumbs.db
+Desktop.ini
+.DS_Store
+._*
+
+# IDE / Editor files
+.vscode/
+.idea/
+*.sublime-project
+*.sublime-workspace
+*.swp
+*.swo
+*~
+
+# PHP
+vendor/
+composer.lock
+*.log
+error_log
+
+# Node (if used for tooling)
+node_modules/
+package-lock.json
+npm-debug.log*
+
+# ESP32 / Arduino build artifacts
+esp32_code/build/
+esp32_code/.pio/
+esp32_code/.vscode/
+
+# Uploaded / generated files
+uploads/
+tmp/
+*.tmp
+
+# Cache files
+*.cache

@@ -1,0 +1,20 @@
+# Block direct web access to environment config files
+<FilesMatch "^\.env(\..*)?$">
+    Order allow,deny
+    Deny from all
+</FilesMatch>
+
+<IfModule mod_rewrite.c>
+    RewriteEngine On
+
+    # If the requested file or directory physically exists, serve it directly
+    RewriteCond %{REQUEST_FILENAME} -f [OR]
+    RewriteCond %{REQUEST_FILENAME} -d
+    RewriteRule ^ - [L]
+
+    # Rewrite known SPA routes to index.php (SPA container)
+    RewriteRule ^(home|login|register|forgot|dashboard|memory|space|assistant|settings)/?$ index.php [QSA,L]
+
+    # Empty path redirects to index.php (Home)
+    RewriteRule ^$ index.php [L]
+</IfModule>
